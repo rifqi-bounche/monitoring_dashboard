@@ -6,7 +6,6 @@ from auth import check_login
 
 st.title("Last Update Monitoring")
 check_login()
-st.divider()
 
 SHEET1_ID = "13q8avPIV2RjBg1tIUeJsd6U23wfOAann30S-d6moQ84" # sosmed fanpagekarma
 SHEET2_ID = "1NQgDn4nylze5FqE7LiPbiW7de9F9BITx8T3FveX1Azc" # data windsor
@@ -282,7 +281,6 @@ if all(c in df2.columns for c in required_cols_2):
         summary_windsor_rows.append({
             "Platform": pub_plat,
             "Last Update": latest_row["Date"] if pd.notna(latest_row["Date"]) else "-",
-            "Link": link_val,
         })
  
     latest_windsor = pd.DataFrame(summary_windsor_rows)
