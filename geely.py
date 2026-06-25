@@ -295,16 +295,6 @@ else:
  
 st.divider()
 
-# ==========================
-# SECTION 3: Data Dealer
-# Grouping by: dealer_name
-# ==========================
- 
-st.markdown("## 🏬 Dealer ")
-# ==========================
-# SECTION 3: Data Dealer
-# ==========================
-
 st.markdown("## 🏬 Dealer")
 st.dataframe(
     df3,
