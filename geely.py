@@ -111,7 +111,7 @@ if "id" not in df1.columns:
 df1["checker"] = df1.duplicated(subset=["id"], keep=False).map({True: "Duplicate", False: "Unique"})
 
 # ── Latest Update per Platform ────────────────────────────────────────────────
-st.markdown("### 🕐 Latest Update per Platform")
+st.markdown("### 🕐 Latest Update per Platform (fanpagekarma)")
 
 required_cols = ["Date", "link", "Platform", "image"]
 
@@ -251,17 +251,17 @@ st.divider()
 # Data Windsor
 # ==========================
 
-st.markdown("### 🕐 Latest Update per Publisher Platform")
+st.markdown("### 🕐 Latest Update per  Platform (Windsor)")
  
-required_cols_2 = ["Date", "Publisher Platform"]
+required_cols_2 = ["Date", "Platform"]
  
 if all(c in df2.columns for c in required_cols_2):
     df2["Date"] = pd.to_datetime(df2["Date"], errors="coerce")
  
     summary_windsor_rows = []
  
-    for pub_plat in sorted(df2["Publisher Platform"].dropna().unique()):
-        df_pub = df2[df2["Publisher Platform"] == pub_plat].copy()
+    for pub_plat in sorted(df2["Platform"].dropna().unique()):
+        df_pub = df2[df2["Platform"] == pub_plat].copy()
  
         if df_pub["Date"].dropna().empty:
             continue
@@ -280,7 +280,7 @@ if all(c in df2.columns for c in required_cols_2):
             link_val = latest_row["Media URL"] if pd.notna(latest_row["Media URL"]) else "-"
  
         summary_windsor_rows.append({
-            "Publisher Platform": pub_plat,
+            "Platform": pub_plat,
             "Last Update": latest_row["Date"] if pd.notna(latest_row["Date"]) else "-",
             "Link": link_val,
         })
